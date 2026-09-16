@@ -1,0 +1,54 @@
+{{define "base"}}
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{.Title}}</title>
+  <meta name="description" content="{{.Description}}">
+  <meta name="theme-color" content="#050a0e">
+  <meta property="og:title" content="{{.Title}}">
+  <meta property="og:description" content="{{.Description}}">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/static/vinovate.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="/" aria-label="VINOVATE home">
+      <img src="/static/vinovate-mark.svg" alt="VINOVATE mark">
+      <span>
+        <b>VINOVATE</b>
+        <small>Apps for the consumer, by the consumer.</small>
+      </span>
+    </a>
+    <nav aria-label="Primary navigation">
+      <a href="/?category=Apps">Apps</a>
+      <a href="/?category=Games">Games</a>
+      <a href="/?category=AI+Tools">AI Tools</a>
+      <a href="/?category=Web+Apps">Web Apps</a>
+      <a href="#about">About</a>
+    </nav>
+  </header>
+
+  <main>
+    {{template "content" .}}
+  </main>
+
+  <footer id="about">
+    <div class="footer-brand">
+      <img src="/static/vinovate-mark.svg" alt="" aria-hidden="true">
+      <div><strong>VINOVATE</strong><p>Apps for the consumer, by the consumer.</p></div>
+    </div>
+    <div class="footer-links">
+      <a href="/?category=Apps">Apps</a>
+      <a href="/?category=Games">Games</a>
+      <a href="/?category=AI+Tools">AI Tools</a>
+      <a href="/?category=Web+Apps">Web Apps</a>
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+    </div>
+    <div class="motto">MORE FREEDOM <i>•</i> BETTER APPS <i>•</i> A BRIGHTER TOMORROW</div>
+  </footer>
+</body>
+</html>
+{{end}}
