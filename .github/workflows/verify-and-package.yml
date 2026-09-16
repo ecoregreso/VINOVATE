@@ -32,16 +32,14 @@ jobs:
       - name: Build
         run: go build -trimpath -o vinovate .
 
-      - name: Package source
+      - name: Stage distributable project
         run: |
           mkdir -p dist/VINOVATE/private-apks
           cp -R main.go go.mod catalog.json templates static Dockerfile README.md dist/VINOVATE/
           printf 'Place release APK files here. This directory is intentionally outside /static.\n' > dist/VINOVATE/private-apks/README.txt
-          cd dist
-          zip -r VINOVATE-Go-Store.zip VINOVATE
 
       - uses: actions/upload-artifact@v4
         with:
           name: VINOVATE-Go-Store
-          path: dist/VINOVATE-Go-Store.zip
+          path: dist/VINOVATE
           if-no-files-found: error
