@@ -1,0 +1,49 @@
+{{define "app.html"}}{{template "base" .}}{{end}}
+
+{{define "content"}}
+{{with .App}}
+<section class="detail">
+  <a class="back" href="/">← Back to VINOVATE</a>
+
+  <div class="detail-hero">
+    <div class="app-icon big">{{initial .Name}}</div>
+    <div class="detail-copy">
+      <span class="category">{{.Category}}</span>
+      <h1>{{.Name}}</h1>
+      <p>{{.Description}}</p>
+      <div class="actions">
+        {{if .WebURL}}<a class="btn ghost" href="{{.WebURL}}">Try in Browser</a>{{end}}
+        <a class="btn primary" href="/download/{{.Slug}}">{{if .Free}}Download APK{{else}}Purchase / Download{{end}}</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-grid">
+    <article class="panel release-panel">
+      <h2>Release information</h2>
+      <dl>
+        <dt>Version</dt><dd>{{.Version}}</dd>
+        <dt>APK size</dt><dd>{{.Size}}</dd>
+        <dt>Android</dt><dd>{{.Android}}</dd>
+        <dt>Package ID</dt><dd><code>{{.Package}}</code></dd>
+        <dt>SHA-256</dt><dd><code>{{.SHA256}}</code></dd>
+      </dl>
+    </article>
+
+    <article class="panel">
+      <h2>Permissions</h2>
+      <p class="panel-note">What this release declares before you install it.</p>
+      <ul class="permission-list">{{range .Permissions}}<li>{{.}}</li>{{end}}</ul>
+    </article>
+
+    <article class="panel trust">
+      <h2>VINOVATE trust panel</h2>
+      <p>✓ Developer signed</p>
+      <p>✓ Hash verified</p>
+      <p>✓ Original package</p>
+      <p>✓ Direct from developer</p>
+    </article>
+  </div>
+</section>
+{{end}}
+{{end}}
